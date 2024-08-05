@@ -34,7 +34,7 @@ const Navbar = () => {
 
   return (
     <nav className={`bg-white z-10 py-4 items-center mb-10 fixed top-0 w-full transition-shadow duration-300 ${hasShadow ? 'shadow-lg' : ''}`}>
-      <div className="w-full  mx-auto px-10">
+      <div className="w-full  mx-auto lg:px-10 px-2">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <Link href="/" className="flex">
