@@ -8,7 +8,7 @@ import Contact from "./Contact";
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <Navbar />
       <Hero/>
       <About />
