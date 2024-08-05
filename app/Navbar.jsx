@@ -2,9 +2,19 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { Email, LocationCity, LocationOn, Phone } from '@mui/icons-material';
+import ContactModal from './ContactModal';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   return (
     <nav className="bg-white shadow-lg">
@@ -21,8 +31,9 @@ const Navbar = () => {
               <Link href="#about" className="font-poppins text-gray-600 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">About</Link>
               <Link href="#gallery" className="font-poppins text-gray-600 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Gallery</Link>
               <Link href="#contact" className="font-poppins text-gray-600 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</Link>
-              <Link href="#contact"> </Link>
-  
+              <Link href="#" onClick={openModal}> <Email /> </Link>
+              <Link href="#" onClick={openModal}> <Phone /> </Link>
+              <Link href="#" onClick={openModal}> <LocationOn /> </Link>
             </div>
           </div>
           <div className="md:hidden flex items-center">
@@ -35,6 +46,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <ContactModal isOpen={isOpen} onRequestClose={closeModal} />
       <div className={`${isOpen ? 'block' : 'hidden'} md:hidden`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <Link href="/" className="font-poppins text-gray-600 hover:bg-blue-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</Link>
